@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_send_approval" model="ir.ui.view">
+        <field name="name">send_approval</field>
+        <field name="model">send.approval</field>
+        <field name="arch" type="xml">
+            <form string="Approval Request">
+                <group>
+                    <p>
+                        replace_me_please
+                    </p>
+                </group>
+                <footer>
+                    <button name="send_approval_request" string="Send Approval Request" type="object" class="oe_highlight"/>
+                    <button string="_Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
+

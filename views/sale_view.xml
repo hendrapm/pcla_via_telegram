@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+       <record id="view_partner_credit_limit_approval_inherit_view_order_form_action_confirm" model="ir.ui.view">
+            <field name="name">view.partner_credit_limit_approval.inherit.view_order_form.action_confirm</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_confirm']" position="after">
+                    <button
+                        name="confirm_sale"
+                        attrs="{'invisible': [('state', 'not in', ['draft'])]}"
+                        string="Confirm Sale"
+                        type="object"
+                        class="btn-success"
+                    />
+                </xpath>
+                <xpath expr="//button[@name='action_confirm'][@id='action_confirm']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_confirm' and not(@id)]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+	    </field>
+        </record>
+    </data>
+</odoo>
