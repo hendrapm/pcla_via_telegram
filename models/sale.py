@@ -55,7 +55,10 @@ class SaleOrder(models.Model):
             return True
         
         view = self.env.ref('pcla_via_telegram.view_send_approval')
-        view.arch = view.arch.replace('replace_me_please', msg)
+        start = view.arch.index('<p>') + 3
+        end = view.arch.index('</p>') - 1
+        sentence = view.arch[start:end]
+        view.arch = view.arch.replace(sentence, msg)
         wiz = self.env['send.approval'].create({'sale_ids': [(4, s.id) for s in self]})
         return {
             'name': _('Credit Limit Approval'),
